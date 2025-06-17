@@ -56,7 +56,7 @@ public:
 
 private:
   uint8_t readR8(uint8_t source);
-  void writeR8(uint8_t destination);
+  void writeR8(uint8_t destination, uint8_t value);
   void loadR8(uint8_t destination, uint8_t source);
 
   uint8_t mOpcode;

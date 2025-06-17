@@ -1,5 +1,6 @@
 #include "CPU.h"
 #include <bitset>
+#include <cstdint>
 #include <iostream>
 #include <stdexcept>
 
@@ -58,5 +59,14 @@ uint8_t CPU::readR8(uint8_t source) {
   }
 }
 
-void CPU::writeR8(uint8_t destination) {}
-void CPU::loadR8(uint8_t destination, uint8_t source) {}
+void CPU::writeR8(uint8_t destination, uint8_t value) {
+  switch (destination) {
+    case REG_B:
+      registers.bc.high = value;
+  }
+}
+
+void CPU::loadR8(uint8_t destination, uint8_t source) {
+  uint8_t aSource = readR8(source);
+  std::cout << "Value at register: " << static_cast<unsigned>(aSource) << std::endl;
+}
